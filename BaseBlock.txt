@@ -1,0 +1,73 @@
+[demo]
+demo:
+    (Get,,,T11)
+    (Plus,T11,2,T12)
+    (Assign,T12,,T11)
+    (Multiply,T11,2,T13)
+    (Return,T13,,ReturnValue)
+    next1 = -1
+    next2 = -1
+
+[main]
+main:
+    (Assign,3,,T14)
+    (Assign,4,,T15)
+    (Assign,2,,T16)
+    (Parm,T16,,demo)
+    (Call,demo,,T17)
+    (Parm,T14,,program)
+    (Parm,T15,,program)
+    (Parm,T17,,program)
+    (Call,program,,T18)
+    (Assign,T18,,T14)
+    (Return,,,)
+    next1 = -1
+    next2 = -1
+
+[program]
+program:
+    (Get,,,T0)
+    (Get,,,T1)
+    (Get,,,T2)
+    (Assign,0,,T3)
+    (Plus,T1,T2,T5)
+    (Jgt,T0,T5,Label2)
+    next1 = 1
+    next2 = 2
+Label1:
+    (J,,,Label3)
+    next1 = 3
+    next2 = -1
+Label2:
+    (Multiply,T1,T2,T6)
+    (Plus,T6,1,T7)
+    (Plus,T0,T7,T8)
+    (Assign,T8,,T4)
+    (J,,,Label4)
+    next1 = 4
+    next2 = -1
+Label3:
+    (Assign,T0,,T4)
+    next1 = 4
+    next2 = -1
+Label4:
+    (Jle,T3,100,Label6)
+    next1 = 5
+    next2 = 6
+Label5:
+    (J,,,Label7)
+    next1 = 7
+    next2 = -1
+Label6:
+    (Multiply,T4,2,T9)
+    (Assign,T9,,T3)
+    (Multiply,T4,2,T10)
+    (Assign,T10,,T4)
+    (J,,,Label4)
+    next1 = 4
+    next2 = -1
+Label7:
+    (Return,T3,,ReturnValue)
+    next1 = -1
+    next2 = -1
+

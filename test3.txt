@@ -1,0 +1,10 @@
+void main(void){
+  int a;
+  if(a>0){
+     b=4;
+  }
+  else{
+     a=3;
+  }
+  return;
+}
